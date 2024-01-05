@@ -22,7 +22,8 @@ from home import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('home/', views.home),
-    path('authorized/', views.authorized),
-    path('smart/', nv.list),
+    path('home/', views.HomeView.as_view()),
+    path('authorized/', views.AuthorizedView.as_view()),
+    path('smart/', include('notes.urls')),
+    # path('notes/<int:pk>', views.details)
 ]
